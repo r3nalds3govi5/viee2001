@@ -1,0 +1,134 @@
+<!--
+This is a simple Secure Recipe Web App Web. This was developed for educational purposes only. 
+Author: oretnom23
+Email: oretnom23@gmail.com 
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Grocery Check List App</title>
+    <link rel="stylesheet" href="./font-awesome/css/all.min.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="./font-awesome/js/all.min.js"></script>
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script src="./js/popper.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/script.js"></script>
+
+</head>
+
+<body class="bg-gradient bg-dark bg-opacity-50">
+    <script>
+        start_loader()
+    </script>
+    <main>
+        <div class="col-lg-12">
+            <h1 class="fw-bolder text-center" id="project-title">Grocery Check List App in JavaScript</h1>
+        </div>
+        <div class="container-fluid w-100">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                    <div class="mb-1" id="msg-field"></div>
+                    <div class="card rounded-0 shadow">
+                        <div class="card-header">
+                            <div class="d-flex w-100 justify-content-between align-items-center">
+                                <h4 class="card-title fw-bold"></h4>
+                                <div>
+                                    <button id="new_item" type="button" class="btn btn btn-sm btn-primary rounded-0 bg gradient border"><i class="fa fa-plus"></i> Add New Item</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="container-fluid">
+                                <div class="d-flex mb-2 justify-content-end">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <input type="search" id="search" class="form-control" placeholder="Search here">
+                                                <span class="input-group-text"><i class="fa fa-search"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list-group">
+                                    <div class="list-group-item">
+                                        <div class="d-flex w-100 align-items-center">
+                                            <div class="col-1 px-1"></div>
+                                            <div class="col-8 flex-shrink-1 flex-grow-1 px-1">Item</div>
+                                            <div class="col-2 px-1 text-center">QTY</div>
+                                            <div class="col-1 px-1"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="item-list" class="list-group">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div class="modal fade" id="formModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="formLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-0">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="formLabel"><i class="fa fa-plus"></i> Add New Ckeck List</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <form action="" id="grocery-form">
+                            <input type="hidden" name="id">
+                            <div class="form-group">
+                                <label for="item" class="control-label">Name of Item to Buy</label>
+                                <input type="text" name="item" id="item" class="form-control form-control-lg" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="quantity" class="control-label">Item Quantity Needed</label>
+                                <input type="number" min="0" name="quantity" id="quantity" class="form-control form-control-lg text-end" required>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary border btn-sm rounded-0" form="grocery-form">Save Item</button>
+                    <button type="button" class="btn btn-light border btn-sm rounded-0" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<noscript id="item-clone">
+    <div class="list-group-item">
+        <div class="d-flex w-100 align-items-center">
+            <div class="col-1 px-2 text-center">
+                <input type="checkbox" class="btn-check" id="item-check" autocomplete="off">
+                <label class="btn btn-outline-primary btn-sm rounded-0 btn-check-label" for="item-check"><i class="fa fa-check text-light"></i></label>
+            </div>
+            <div class="col-8 flex-shrink-1 flex-grow-1 px-1">
+                <p class="m-0 item"></p>
+            </div>
+            <div class="col-2 px-1 text-center item-qty"></div>
+            <div class="col-1 px-1 text-center">
+                <div class="dropdown">
+                    <a class="text-decoration-none text-reset px-2 dd-ellipsis" href="javasscript:void(0)" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa fa-ellipsis-v"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item edit-data" href="javascript:void(0)">Edit</a></li>
+                        <li><a class="dropdown-item delete-data" href="javascript:void(0)">Delete</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</noscript>
+
+</html>
